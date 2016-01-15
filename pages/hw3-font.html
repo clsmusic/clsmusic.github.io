@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta:renderer></meta:renderer>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta:author></meta:author>
+    <meta name="keywords" content="Keyword 1,Keyword 2">
+    <meta name="description" content="description">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" type="text/css" href="../CSS/reset.css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../CSS/hw3.css">
+    <title>CSS - Font setting</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1>CSS Practice -Font Setting</h1>
+        <h4>Below content is from "Learn Python the Hard Way: Exercise 50"</h4>
+    </div>
+    <hr>
+    <div class="center">
+        <h2>Installing lpthw.web</h2>
+        <div>
+            <p>Before creating your first web application, you'll first need to install the "web framework" called lpthw.web. The term "framework" generally means "some package that makes it easier for me to do something." In the world of web applications, people create "web frameworks" to compensate for the difficult problems they've encountered when making their own sites. They share these common solutions in the form of a package you can download to bootstrap your own projects.</p>
+            <p>
+                In our case, we'll be using the lpthw.web framework, but there are many, many, many others you can choose from. For now, learn lpthw.web, then branch out to another one when you're ready (or just keep using lpthw.web since it's good enough).
+            </p>
+            <p>
+                Using pip, install lpthw.web:
+            </p>
+            <div class="q">
+                <blockquote>
+                    <span class="os">$ sudo pip install lpthw.web</span>
+                    <span class="res">
+                    <br>[sudo] password for zedshaw:
+                    <br> Downloading/unpacking lpthw.web
+                    <br> &nbsp Running setup.py egg_info for package lpthw.web
+                    <br>
+                    <br>Installing collected packages: lpthw.web
+                    <br>&nbsp Running setup.py install for lpthw.web
+                    <br>
+                    <br>Successfully installed lpthw.web
+                    <br>Cleaning up...</span>
+                </blockquote>
+            </div>
+            <p>
+                This will work on Linux and Mac OSX computers, but on Windows just drop the sudo part of the pip install command and it should work. If not, go back to Exercise 46 and make sure you can do it reliably.
+            </p>
+        </div>
+        <h2>Make a Simple "Hello World" Project</h2>
+        <div>
+            <p>
+                Now you're going to make an initial very simple "Hello World" web application and project directory using lpthw.web. First, make your project directory:
+            </p>
+            <div class="q">
+                <blockquote>
+                    <span class="os">$ cd projects
+                    <br>$ mkdir gothonweb
+                    <br>$ cd gothonweb
+                    <br>$ mkdir bin gothonweb tests docs templates
+                    <br>$ touch gothonweb/__init__.py
+                    <br>$ touch tests/__init__.py</span>
+                </blockquote>
+            </div>
+            <p>
+                You'll be taking the game from Exercise 43 and making it into a web application, so that's why you're calling it gothonweb. Before you do that, we need to create the most basic lpthw.web application possible. Put the following code into bin/app.py:</p>
+            <div class="q">
+                <blockquote>
+                    <span class="py">import</span> web
+                    <br>
+                    <br> urls = (
+                    <br> &nbsp&nbsp&nbsp&nbsp<span class="pystr">'/'</span>, <span class="pystr">'index'</span>
+                    <br>)
+                    <br>
+                    <br> app = web.application(urls, globals())
+                    <br>
+                    <br><span class="py">class</span> index:
+                    <br> &nbsp&nbsp&nbsp&nbsp<span class="py">def</span> GET(self):
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspgreeting = <span class="pystr">"Hello World"</span>
+                    <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspreturn greeting
+                    <br>
+                    <br><span class="py">if</span> __name__ == <span class="pystr">"__main__"</span>:
+                    <br>&nbsp&nbsp&nbsp&nbspapp.run()
+                </blockquote>
+            </div>
+            <p>
+                Then run the application like this:
+            </p>
+            <div class="q">
+                <blockquote>
+                    <span class="os">$ python bin/app.py</span>
+                    <span class="res"><br>http://0.0.0.0:8080/</span>
+                </blockquote>
+            </div>
+            <p>
+                However, if you did this:
+            </p>
+            <div class="q">
+                <blockquote>
+                    <span class="os">$ cd bin/ # WRONG! WRONG! WRONG!
+                    <br>$ python app.py # WRONG! WRONG! WRONG!</span>
+                </blockquote>
+            </div>
+            <p>
+                Then you are doing it wrong. In all Python projects you do not cd into a lower directory to run things. You stay at the top and run everything from there so that all of the system can access all the modules and files. Go reread Exercise 46 to understand a project layout and how to use it if you did this.</p>
+            <p>
+                Finally, use your web browser and go to http://localhost:8080/ and you should see two things. First, in your browser you'll see Hello, world!. Second, you'll see your Terminal with new output like this:
+            </p>
+            <div class="q">
+                <blockquote>
+                    <span class="os">$ python bin/app.py</span>
+                    <span class="res"><br>http://0.0.0.0:8080/
+                    <br>127.0.0.1:59542 - - [13/Jun/2011 11:44:43] "HTTP/1.1 GET /" - 200 OK
+                    <br>127.0.0.1:59542 - - [13/Jun/2011 11:44:43] "HTTP/1.1 GET /favicon.ico" - 404 Not Found</span>
+                </blockquote>
+            </div>
+            <p>
+                Those are log messages that lpthw.web prints out so you can see that the server is working, and what the browser is doing behind the scenes. The log messages help you debug and figure out when you have problems. For example, it's saying that your browser tried to get /favicon.ico but that file didn't exist so it returned 404 Not Found status code.
+            </p>
+            <p>
+                I haven't explained the way any of this web stuff works yet, because I want to get you setup and ready to roll so that I can explain it better in the next two exercises. To accomplish this, I'll have you break your lpthw.web application in various ways and then restructure it so that you know how it's setup.</p>
+        </div>
+        <a href="../index.html">Back to Index</a>
+    </div>
+</body>
+
+</html>

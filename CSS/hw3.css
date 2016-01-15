@@ -1,0 +1,78 @@
+@font-face {
+    font-family: "E";
+    src: url("http://wickedlysmart.com/hfhtmlcss/chapter8/journal/EmblemaOne-Regular.ttf");
+}
+
+body {
+    font-family: Verdana, Geneva, Arial, Sans-serif;
+    font-size: 14px;
+}
+
+div.center {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #999999;
+}
+
+div.header {
+    text-align: center;
+    color: #444444;
+}
+
+h1 {
+    font-size: 300%;
+    font-family: E;
+    padding-bottom: 20px;
+}
+
+h4 {
+    font-size: 110%
+}
+
+h2 {
+    font-size: 180%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    font-family: Lobster;
+    font-style: lighter;
+}
+
+p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+div.q {
+    margin: auto;
+    width: 90%;
+    background-color: #f9f9f9;
+    margin: auto;
+}
+
+blockquote {
+    font-family: Andale Mono;
+    padding-left: 50px;
+    border: 1px dashed #ccc;
+    color: #000000;
+    background: #f9f9f9;
+}
+
+blockquote>span.os {
+    color: #006600;
+}
+
+blockquote>span.res {
+    color: #d6d6c2;
+    font-style: italic;
+}
+
+span.py {
+    color: #0000cc;
+    font-weight: bolder;
+}
+
+span.pystr {
+    color: #ff9933;
+}
