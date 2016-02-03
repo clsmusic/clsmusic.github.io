@@ -1,0 +1,10 @@
+.wrap {
+    border: 1px solid #D7D7D7;
+    border-radius: 5px;
+}
+
+tr,
+td,
+th {
+    text-align: center;
+}
